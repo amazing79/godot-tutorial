@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dknob4uysc3rv"]
+[gd_scene load_steps=38 format=4 uid="uid://dknob4uysc3rv"]
 
 [ext_resource type="Texture2D" uid="uid://bn8dafr2u34q7" path="res://resources/tilesets/Water Background color.png" id="1_o3n0h"]
 [ext_resource type="Texture2D" uid="uid://cr68ksm3nadwl" path="res://resources/tilesets/Tilemap_color1.png" id="2_38prr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dtvynf6qq6ww5" path="res://assets/environment/props/clouds/Clouds_06.png" id="13_3plql"]
 [ext_resource type="Texture2D" uid="uid://bail1didys7dy" path="res://assets/environment/props/clouds/Clouds_07.png" id="14_il8qb"]
 [ext_resource type="Texture2D" uid="uid://b5xqc1rsiw1q" path="res://assets/environment/props/clouds/Clouds_08.png" id="15_72sho"]
+[ext_resource type="PackedScene" uid="uid://0yr8pva6gl78" path="res://scenes/entities/enemies/enemy.tscn" id="17_r6tr0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qoqmi"]
 texture = ExtResource("1_o3n0h")
@@ -449,4 +450,13 @@ tile_map_data = PackedByteArray("AAAFABAABAAAAAAAAAAZAA0ABAAAAAAAAAAeAAMABAAAAAA
 tile_set = SubResource("TileSet_koluf")
 
 [node name="Player" parent="." instance=ExtResource("12_auue8")]
-position = Vector2(947, 332)
+position = Vector2(678, 142)
+
+[node name="Enemies" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("17_r6tr0")]
+position = Vector2(1125, 505)
+
+[node name="Effects" type="Node2D" parent="."]
+unique_name_in_owner = true
