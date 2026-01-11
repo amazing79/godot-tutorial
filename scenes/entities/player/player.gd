@@ -8,6 +8,7 @@ enum State {
 }
 
 @export_category("Stats")
+@export var hitpoints: int = 180
 @export var speed: int = 400
 @export var attack_speed: float = 0.6
 @export var attack_damage:int = 60
@@ -59,6 +60,12 @@ func update_animation() -> void:
 		State.ATTACK:
 			animation_playback.travel("attack")
 
+func take_damage(damage_taken:int) -> void:
+	hitpoints -= damage_taken
+	if hitpoints <= 0:
+		death()
+
+
 func attack() -> void:
 	if state == State.ATTACK:
 		return
@@ -73,6 +80,10 @@ func attack() -> void:
 	await  get_tree().create_timer(attack_speed).timeout
 	state = State.IDLE
 
+	
+func death() -> void:
+	print("aggh I Die")
+	
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	area.owner.take_damage(attack_damage)
