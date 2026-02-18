@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmqc852djgbkg"]
+
+[ext_resource type="PackedScene" uid="uid://dknob4uysc3rv" path="res://scenes/maps/test_map.tscn" id="1_dv3lr"]
+[ext_resource type="Script" uid="uid://chg0nim4or4j8" path="res://scenes/main/main_scene.gd" id="1_ei2sf"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_ei2sf")
+
+[node name="TestMap" parent="." instance=ExtResource("1_dv3lr")]

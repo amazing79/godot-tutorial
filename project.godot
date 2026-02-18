@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GDC_RPG_Essentials_Starter-Kit"
-run/main_scene="uid://dknob4uysc3rv"
+run/main_scene="uid://bmqc852djgbkg"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerData="*res://scripts/global/player_data.gd"
+LevelData="*res://scripts/data/level_data.gd"
 
 [display]
 
@@ -23,6 +28,7 @@ window/size/viewport_height=1080
 [global_group]
 
 player=""
+enemies=""
 
 [input]
 

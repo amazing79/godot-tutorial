@@ -37,12 +37,14 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_auue8"]
+resource_name = "spantapajros"
 texture = ExtResource("4_c68al")
 texture_region_size = Vector2i(192, 192)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.43851, 26.649904, 27.20256, 28.51267, 12.894669, 71.06615, -7.7844696, 72.46812)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yti6m"]
+resource_name = "tree"
 texture = ExtResource("5_yrmkj")
 texture_region_size = Vector2i(192, 192)
 0:0/animation_speed = 0.8
