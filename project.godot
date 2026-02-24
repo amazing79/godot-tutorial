@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GDC_RPG_Essentials_Starter-Kit"
-run/main_scene="uid://bmqc852djgbkg"
+run/main_scene="uid://b5wmwm2uw347a"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
