@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmqc852djgbkg"]
+[gd_scene load_steps=12 format=3 uid="uid://bmqc852djgbkg"]
 
 [ext_resource type="PackedScene" uid="uid://dknob4uysc3rv" path="res://scenes/maps/test_map.tscn" id="1_dv3lr"]
 [ext_resource type="Script" uid="uid://chg0nim4or4j8" path="res://scenes/main/main_scene.gd" id="1_ei2sf"]
 [ext_resource type="PackedScene" uid="uid://q1cojgue0i41" path="res://scenes/ui/end_game_screen.tscn" id="2_ubvhi"]
+[ext_resource type="PackedScene" uid="uid://dqf2qyn1c7mii" path="res://scenes/effects/level_up.tscn" id="3_0jrka"]
 [ext_resource type="Script" uid="uid://c07y42l0d71y5" path="res://scenes/main/hud.gd" id="4_271kv"]
 [ext_resource type="Texture2D" uid="uid://d1s23p8dn0ay1" path="res://assets/ui/elements/Carved_3Slides.png" id="4_s7l2u"]
 [ext_resource type="Texture2D" uid="uid://by2tr4oqf3u47" path="res://assets/ui/elements/Banner_Connection_Up.png" id="5_l7pil"]
 [ext_resource type="FontFile" uid="uid://d00h4ctsh5ohj" path="res://assets/fonts/PirataOne-Regular.ttf" id="6_l7pil"]
+[ext_resource type="Texture2D" uid="uid://jkk7oqx3lugg" path="res://assets/ui/icons/Avatars_01.png" id="8_a4cr6"]
+[ext_resource type="AudioStream" uid="uid://dc4cj5prpvo46" path="res://assets/audio/music/cavalcade-of-stars-aaron-paul-low-main-version-20382-01-01.mp3" id="10_w4lj1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_271kv"]
 font = ExtResource("6_l7pil")
@@ -19,6 +22,7 @@ shadow_color = Color(0.01, 0.01, 0.01, 1)
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ei2sf")
 end_game_screen_packed = ExtResource("2_ubvhi")
+level_up_scene_packed = ExtResource("3_0jrka")
 
 [node name="TestMap" parent="." instance=ExtResource("1_dv3lr")]
 
@@ -78,3 +82,17 @@ text = "1"
 label_settings = SubResource("LabelSettings_271kv")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerAvatar" type="TextureRect" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -7.0
+offset_right = 153.0
+offset_bottom = 123.0
+texture = ExtResource("8_a4cr6")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_w4lj1")
+volume_db = -12.113
+autoplay = true

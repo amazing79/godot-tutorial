@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://q1cojgue0i41"]
+[gd_scene load_steps=9 format=3 uid="uid://q1cojgue0i41"]
 
 [ext_resource type="FontFile" uid="uid://d00h4ctsh5ohj" path="res://assets/fonts/PirataOne-Regular.ttf" id="1_ketox"]
 [ext_resource type="Script" uid="uid://cgcwip7mbpetr" path="res://scenes/ui/end_game_screen.gd" id="1_svl4o"]
 [ext_resource type="Texture2D" uid="uid://dd5chn7mty8ao" path="res://assets/ui/buttons/Button_Blue_3Slides.png" id="2_svl4o"]
 [ext_resource type="Texture2D" uid="uid://t6ugsh3rd7ag" path="res://assets/ui/buttons/Button_Blue_3Slides_Pressed.png" id="3_x8rbx"]
 [ext_resource type="Texture2D" uid="uid://crpe6wlm1i2bo" path="res://assets/ui/buttons/Button_Hover_3Slides.png" id="4_grgci"]
+[ext_resource type="AudioStream" uid="uid://3x5wgkv5ad8d" path="res://assets/audio/music/video-game-happy-flourish-gamemaster-audio-4-00-01.mp3" id="6_x8rbx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2dauq"]
 font = ExtResource("1_ketox")
@@ -112,6 +113,10 @@ grow_vertical = 2
 text = "Main Menu"
 label_settings = SubResource("LabelSettings_fuhln")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_x8rbx")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ReplayGame" to="." method="_on_replay_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

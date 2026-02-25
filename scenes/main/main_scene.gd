@@ -3,19 +3,23 @@ extends Node2D
 signal levelup
 
 @export var end_game_screen_packed: PackedScene
+@export var level_up_scene_packed: PackedScene
 
 var total_enemies: int
 var killed_enemies = 0
+var player: CharacterBody2D
+var win_sound = preload("res://assets/audio/music/video-game-happy-flourish-gamemaster-audio-4-00-01.mp3")
 
 @onready var HUD : Control = $UI/HUD
 
 func _ready() -> void:
+	$AudioStreamPlayer.play()
 	var enemy_array: Array = get_tree().get_nodes_in_group('enemies')
 	total_enemies = enemy_array.size()
 	for i in enemy_array:
 		i.died.connect(enemy_died)
 	
-	var player : CharacterBody2D = get_tree().get_first_node_in_group('player')
+	player = get_tree().get_first_node_in_group('player')
 	levelup.connect(player.calculate_stats)
 	player.game_over.connect(display_end_game_screen)
 	player.update_hp_bar.connect(HUD.update_hp_bar)
@@ -39,7 +43,9 @@ func experience_gained(exp_gain:int) -> void:
 		
 
 func level_up(new_experience:int) -> void:
-	print('I have the power')
+	var scene: Node2D = level_up_scene_packed.instantiate()
+	scene.position =Vector2(-100.0, -150.0)
+	player.add_child(scene)
 	new_experience -= LevelData.level_thresholds[PlayerData.level - 1 ]
 	PlayerData.level += 1
 	PlayerData.experience = new_experience
@@ -47,6 +53,7 @@ func level_up(new_experience:int) -> void:
 	HUD.update_level_indicator()
 
 func display_end_game_screen(victorius:bool) -> void:
+	$AudioStreamPlayer.stop()
 	var end_game_screen: Control = end_game_screen_packed.instantiate()
 	end_game_screen.victorius = victorius
 	
@@ -57,7 +64,6 @@ func display_end_game_screen(victorius:bool) -> void:
 	$UI.add_child(end_game_screen)
 	
 	await get_tree().create_timer(0.4).timeout
-	var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 	player.set_process_mode(Node.PROCESS_MODE_DISABLED)
 	var enemies: Array = get_tree().get_nodes_in_group("enemies")
 	for i: CharacterBody2D in enemies:

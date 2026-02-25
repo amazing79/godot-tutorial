@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3b165xrftog6"]
+[gd_scene load_steps=9 format=3 uid="uid://c3b165xrftog6"]
 
 [ext_resource type="Script" uid="uid://6ggjbrefmhlu" path="res://scenes/ui/main_menu.gd" id="1_x2yvf"]
 [ext_resource type="PackedScene" uid="uid://bwbpje7eq8cs4" path="res://scenes/maps/bg_map.tscn" id="2_btxxm"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://t6ugsh3rd7ag" path="res://assets/ui/buttons/Button_Blue_3Slides_Pressed.png" id="3_btxxm"]
 [ext_resource type="Texture2D" uid="uid://crpe6wlm1i2bo" path="res://assets/ui/buttons/Button_Hover_3Slides.png" id="4_wb0q5"]
 [ext_resource type="FontFile" uid="uid://d00h4ctsh5ohj" path="res://assets/fonts/PirataOne-Regular.ttf" id="5_q85j6"]
+[ext_resource type="AudioStream" uid="uid://c3watlvem6c5j" path="res://assets/audio/music/medieval-bard-music-loop-dramatic-gfx-sounds-1-00-07.mp3" id="7_btxxm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bxtry"]
 font = ExtResource("5_q85j6")
 font_size = 66
-outline_size = 3
+outline_size = 15
 outline_color = Color(0.01, 0.01, 0.01, 1)
-shadow_size = 6
+shadow_size = 15
 shadow_color = Color(0.01, 0.01, 0.01, 1)
 
 [node name="MainMenu" type="Control"]
@@ -133,6 +134,29 @@ grow_vertical = 2
 text = "Exit"
 label_settings = SubResource("LabelSettings_bxtry")
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -60.0
+offset_right = 189.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Medieval Knights"
+label_settings = SubResource("LabelSettings_bxtry")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_btxxm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

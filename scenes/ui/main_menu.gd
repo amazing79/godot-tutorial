@@ -5,8 +5,6 @@ signal about_pressed(origin:String)
 signal settings_pressed(origin:String)
 signal exit_pressed(origin:String)
 
-
-
 func _on_new_game_pressed() -> void:
 	new_game_pressed.emit("main_menu")
 

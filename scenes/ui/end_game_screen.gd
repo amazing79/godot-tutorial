@@ -8,6 +8,7 @@ var victorius: bool
 func _ready() -> void:
 	if victorius:
 		$VBoxContainer/Result.text = "Victory!"
+		$AudioStreamPlayer.play()
 		
 
 func _on_replay_game_pressed() -> void:
